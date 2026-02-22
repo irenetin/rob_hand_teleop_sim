@@ -10,8 +10,6 @@ The control system is split into two independent parts:
 - Robot arm control (end-effector pose tracking)
 - Dexterous hand control (joint-level retargeting)
 
----
-
 ## Arm Control
 
 ### Method
@@ -29,7 +27,6 @@ At each control step:
 
 This control formulation follows the **Pinocchio-based motion control style used in https://github.com/Dingry/BunnyVisionPro**.
 
----
 
 ## Why Pinocchio Instead of Pink
 
@@ -49,7 +46,6 @@ While Pink provides explicit constraint handling, it was not selected for the fi
 - **Predictable real-time behavior**  
   The control loop integrates cleanly into a fixed-rate (e.g. 60 Hz) update cycle and works well with streaming inputs.
 
----
 
 ## Hand Control
 
@@ -57,7 +53,6 @@ Dexterous hand control is implemented via **retargeting**, mapping human hand mo
 
 The retargeting module is independent from the arm IK solver and can be adapted to different hand models and joint layouts.
 
----
 
 ## Control-Related Dependencies
 
