@@ -10,8 +10,6 @@ The control system is split into two independent parts:
 - Robot arm control (end-effector pose tracking)
 - Dexterous hand control (joint-level retargeting)
 
-The arm and hand controllers are decoupled by design.
-
 ---
 
 ## Arm Control
@@ -29,11 +27,11 @@ At each control step:
 3. Solve a damped least-squares Jacobian system
 4. Integrate joint updates over a fixed control timestep
 
-This control formulation follows the **Pinocchio-based motion control style used in BunnyVisionPro**.
+This control formulation follows the **Pinocchio-based motion control style used in https://github.com/Dingry/BunnyVisionPro**.
 
 ---
 
-## Why Pinocchio (BunnyVisionPro-style) Instead of Pink
+## Why Pinocchio Instead of Pink
 
 Earlier iterations of this project evaluated **Pink**, a QP-based differential IK framework.
 
@@ -50,10 +48,6 @@ While Pink provides explicit constraint handling, it was not selected for the fi
 
 - **Predictable real-time behavior**  
   The control loop integrates cleanly into a fixed-rate (e.g. 60 Hz) update cycle and works well with streaming inputs.
-
-For these reasons, the BunnyVisionPro-style Pinocchio IK provides a simpler and more interpretable control law for teleoperation.
-
-Pink remains a valid option for scenarios requiring strict constraint enforcement near joint limits, but it is not used in this project.
 
 ---
 
